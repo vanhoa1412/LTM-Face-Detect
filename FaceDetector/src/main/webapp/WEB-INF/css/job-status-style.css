@@ -1,0 +1,262 @@
+/* ==========================================================================
+   webapp/css/job-status-style.css
+   Styles specific to the jobStatus.jsp page
+   ========================================================================== */
+
+/* Kế thừa một số style chung nếu không có file style.css chính */
+/* Hoặc bạn có thể định nghĩa lại hoàn toàn ở đây */
+
+/* General App Container & Header Styles (Nếu chưa có trong style.css chung hoặc muốn override) */
+.app-container {
+    /* Có thể giữ lại từ style.css chung hoặc điều chỉnh nếu cần */
+}
+
+.app-header {
+    /* Có thể giữ lại từ style.css chung hoặc điều chỉnh nếu cần */
+}
+.app-header h1 {
+    font-size: 1.7em; /* Có thể điều chỉnh kích thước tiêu đề trang */
+}
+
+main {
+    padding-top: 10px;
+}
+
+/* Job Details Section */
+.job-details {
+    background-color: #f9f9f9; /* Nền sáng hơn một chút */
+    padding: 20px 25px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.job-details p {
+    margin-bottom: 10px;
+    font-size: 1.05em; /* Chữ to hơn một chút cho dễ đọc */
+    color: #333;
+}
+
+.job-details strong {
+    min-width: 110px; /* Đảm bảo các label thẳng hàng */
+    display: inline-block;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Section Heading for Images */
+h3 { /* Target specifically the "Images Processed in this Job" heading */
+    font-size: 1.4em;
+    color: #34495e;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Image Gallery for Job Status Page */
+.job-status-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Khoảng cách giữa các item ảnh */
+    margin-top: 15px;
+}
+
+.image-item-detailed {
+    background-color: #ffffff;
+    border: 1px solid #dce1e6; /* Border rõ ràng hơn */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    width: 100%; /* Mặc định full width, sẽ điều chỉnh cho desktop */
+    margin-bottom: 20px; /* Khoảng cách giữa các item nếu chúng stack */
+}
+
+/* Cho layout 2 cột trên desktop */
+@media (min-width: 992px) { /* Ví dụ: màn hình lớn hơn 992px */
+    .image-item-detailed {
+        width: calc(50% - 12.5px); /* 2 cột với khoảng cách gap 25px */
+    }
+}
+@media (min-width: 1200px) { /* Có thể thêm 3 cột cho màn hình rất lớn */
+    /*
+    .image-item-detailed {
+        width: calc(33.333% - (25px * 2 / 3));
+    }
+    */
+}
+
+
+.image-item-detailed .filename {
+    font-size: 1.15em; /* Tên file to hơn */
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #0056b3; /* Màu nhấn cho tên file */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block; /* Đảm bảo ellipsis hoạt động */
+}
+
+.image-item-detailed .detection-details {
+    font-size: 0.95em;
+    color: #454545;
+    margin-bottom: 18px;
+    min-height: 1.3em; /* Giữ chiều cao ổn định */
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+}
+.image-item-detailed .detection-details strong {
+    color: #222;
+}
+/* Style cho các span status bên trong detection-details (nếu có) */
+.detection-details .status-processing { color: #856404; font-style: italic;}
+.detection-details .status-info { color: #055160; }
+.detection-details .status-failed { color: #721c24; font-weight: bold;}
+.detection-details .status-completed { color: #155724; } /* Giả sử "detected" là completed */
+
+
+.image-comparison {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa box ảnh gốc và ảnh đã xử lý */
+    justify-content: space-between; /* Đẩy 2 box ra xa nhau */
+    align-items: flex-start; /* Căn đỉnh */
+    margin-top: 10px;
+}
+
+.image-box {
+    flex: 1; /* Mỗi box chiếm 1 nửa không gian còn lại */
+    min-width: 0; /* Quan trọng để flex item co lại đúng cách */
+    text-align: center;
+    border: 1px solid #e9ecef; /* Border nhẹ nhàng */
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #f8f9fa; /* Nền rất nhạt */
+    display: flex;
+    flex-direction: column; /* Label ở trên, ảnh ở dưới */
+}
+
+.image-box .box-label {
+    display: block;
+    font-size: 0.8em; /* Label nhỏ */
+    text-transform: uppercase;
+    color: #6c757d; /* Màu xám cho label */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.comparison-preview {
+    width: 100%; /* Ảnh chiếm toàn bộ chiều rộng của box chứa nó */
+    height: 180px; /* Chiều cao cố định cho ảnh preview */
+    object-fit: contain; /* Hiển thị toàn bộ ảnh, có thể có letterbox */
+    border: 1px solid #ced4da; /* Border cho chính ảnh */
+    background-color: #ffffff; /* Nền trắng cho ảnh */
+    border-radius: 3px;
+    display: block; /* Loại bỏ khoảng trống thừa bên dưới img */
+}
+
+.preview-content { /* Wrapper cho ảnh hoặc placeholder */
+    width: 100%;
+    height: 180px; /* Phải bằng chiều cao của .comparison-preview */
+    display: flex; /* Để căn giữa placeholder */
+    align-items: center;
+    justify-content: center;
+}
+
+.comparison-placeholder {
+    width: 100%;
+    height: 100%; /* Chiếm toàn bộ .preview-content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    color: #6c757d;
+    background-color: #e9ecef;
+    border: 1px dashed #ced4da; /* Border đứt nét cho placeholder */
+    border-radius: 3px;
+    text-align: center;
+    padding: 10px;
+}
+/* Màu sắc cho placeholder dựa trên status (nếu cần) */
+.comparison-placeholder.status-processing { color: #856404; background-color: #fff3cd; border-color: #ffeeba; }
+.comparison-placeholder.status-failed { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb;}
+.comparison-placeholder.status-info { color: #055160; background-color: #cff4fc; border-color: #b6effb;}
+
+
+/* Back link */
+.back-link {
+    margin-top: 30px;
+    font-size: 1em;
+    text-align: center; /* Hoặc left nếu muốn */
+}
+.back-link a {
+    font-weight: 500;
+    padding: 8px 15px;
+    border: 1px solid #6c757d;
+    color: #495057;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+.back-link a:hover {
+    background-color: #6c757d;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Table for Job List (nếu người dùng chưa chọn job cụ thể) */
+.job-table {
+    /* Style đã có trong style.css chung, có thể override ở đây nếu cần */
+}
+.job-table .btn-view {
+    /* Style đã có trong style.css chung */
+}
+.job-table .status { /* Đảm bảo các status trong bảng cũng được style */
+    /* Các class .status-pending, .status-processing v.v. sẽ áp dụng */
+}
+
+/* Responsive adjustments for the job status page */
+@media (max-width: 767px) {
+    .image-comparison {
+        flex-direction: column; /* Stack ảnh gốc và ảnh đã xử lý trên mobile */
+        gap: 20px; /* Khoảng cách lớn hơn khi stack */
+    }
+    .image-box {
+        width: 100%; /* Mỗi box chiếm full width khi stack */
+        margin-bottom: 0; /* Bỏ margin bottom vì đã có gap từ flex-direction */
+    }
+    .comparison-preview,
+    .preview-content,
+    .comparison-placeholder {
+        height: 220px; /* Tăng chiều cao ảnh trên mobile */
+    }
+    .image-item-detailed .filename {
+        font-size: 1.05em;
+    }
+    .job-details p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .job-status-gallery {
+        gap: 15px;
+    }
+    .image-item-detailed {
+        padding: 15px;
+    }
+     .job-details {
+        padding: 15px;
+    }
+    .comparison-preview,
+    .preview-content,
+    .comparison-placeholder {
+        height: 180px; /* Giảm lại chút cho màn hình rất nhỏ */
+    }
+}
+
+/* Footer Styles (Nếu chưa có trong style.css chung hoặc muốn override) */
+footer {
+    /* Có thể giữ lại từ style.css chung hoặc điều chỉnh nếu cần */
+}

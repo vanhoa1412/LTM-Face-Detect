@@ -1,0 +1,109 @@
+/* ==========================================================================
+   webapp/css/login-style.css
+   Styles specific ONLY to the login.jsp page
+   These will override or add to styles from style.css (if linked)
+   ========================================================================== */
+
+/* Để style body riêng, bạn cần thêm class vào thẻ <body> của login.jsp:
+   <body class="login-page-body-specific">
+*/
+body.login-page-body-specific {
+    background: #f0f4f7; /* Một màu nền khác cho trang login */
+    /* Hoặc một gradient phức tạp hơn nếu muốn */
+    /* background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 15px; /* Padding cho màn hình nhỏ */
+}
+
+/* Tùy chỉnh .auth-container CHỈ cho trang login */
+/* Bạn có thể thêm một class mới vào div container trong login.jsp, ví dụ:
+   <div class="container auth-container login-form-wrapper">
+   Hoặc nhắm mục tiêu nó dựa trên class của body:
+*/
+.login-page-body-specific .auth-container {
+    background-color: #ffffff;
+    padding: 40px; /* Padding lớn hơn */
+    border-radius: 12px; /* Bo tròn nhiều hơn */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Shadow nổi bật hơn */
+    max-width: 400px; /* Có thể điều chỉnh lại max-width */
+    border-top: 4px solid #007bff; /* Thêm một đường nhấn màu ở trên */
+}
+
+.login-page-body-specific .auth-container h2 {
+    color: #0056b3; /* Màu xanh đậm hơn cho tiêu đề */
+    font-family: 'Arial Black', Gadget, sans-serif; /* Font khác biệt */
+    font-size: 2em; /* To hơn */
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* Tùy chỉnh input fields trên trang login */
+.login-page-body-specific .form-group input[type="text"],
+.login-page-body-specific .form-group input[type="password"] {
+    background-color: #f8f9fa; /* Nền input hơi xám */
+    border: 1px solid #d3d9df;
+    padding: 14px 18px; /* Padding lớn hơn cho input */
+    font-size: 1.05em;
+}
+
+.login-page-body-specific .form-group input[type="text"]:focus,
+.login-page-body-specific .form-group input[type="password"]:focus {
+    background-color: #fff; /* Nền trắng khi focus */
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.2);
+}
+
+/* Tùy chỉnh nút Login */
+.login-page-body-specific .btn-primary {
+    background-color: #28a745; /* Màu xanh lá cây cho nút login */
+    border-color: #1e7e34;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 600; /* Đậm hơn */
+    text-transform: none; /* Bỏ uppercase nếu style chung có */
+    letter-spacing: 0;   /* Bỏ letter-spacing nếu style chung có */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.login-page-body-specific .btn-primary:hover {
+    background-color: #1e7e34; /* Xanh lá đậm hơn khi hover */
+    border-color: #1c7430;
+    transform: translateY(-2px); /* Hiệu ứng nhấc nút lên một chút */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.login-page-body-specific .btn-primary:active {
+    transform: translateY(0); /* Nút trở lại vị trí cũ khi click */
+    box-shadow: none;
+}
+
+
+/* Tùy chỉnh link "Register here" */
+.login-page-body-specific .auth-switch {
+    margin-top: 25px;
+    font-size: 0.95em;
+}
+.login-page-body-specific .auth-switch a {
+    color: #007bff; /* Màu xanh cho link */
+    font-weight: bold; /* Chữ đậm */
+}
+.login-page-body-specific .auth-switch a:hover {
+    color: #0056b3; /* Xanh đậm hơn khi hover */
+}
+
+/* Ghi đè message styles nếu cần (ví dụ, làm chúng nổi bật hơn trên nền mới) */
+.login-page-body-specific .message.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    box-shadow: 0 2px 4px rgba(15, 81, 50, 0.1);
+}
+.login-page-body-specific .message.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    box-shadow: 0 2px 4px rgba(132, 32, 41, 0.1);
+}

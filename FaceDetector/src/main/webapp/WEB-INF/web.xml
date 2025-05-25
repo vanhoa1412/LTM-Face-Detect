@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"
+         id="FaceDetectorWebApp">
+
+  <display-name>FaceDetectorWebApp</display-name>
+
+  <context-param>
+    <param-name>uploadDirectory</param-name>
+    <param-value>C:\Users\My computer\eclipseWeb\FaceDetector\server_data\uploads</param-value> 
+  </context-param>
+  <context-param>
+    <param-name>outputDirectory</param-name> 
+    <param-value>C:\Users\My computer\eclipseWeb\FaceDetector\server_data\facedetect</param-value> 
+  </context-param>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/WEB-INF/jsp/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/jsp/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/jsp/error.jsp</location>
+  </error-page>
+  <!-- Thêm các error-code khác nếu cần -->
+
+</web-app>

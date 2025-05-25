@@ -1,0 +1,611 @@
+/* ==========================================================================
+   1. Global Resets & Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9; /* Softer background color */
+    color: #333a40; /* Darker text for better contrast */
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+}
+
+/* ==========================================================================
+   2. Layout & Container
+   ========================================================================== */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Slightly wider max-width for app pages */
+    margin: 40px auto; /* More top/bottom margin */
+    background-color: #ffffff;
+    padding: 25px 35px; /* More padding */
+    border-radius: 10px; /* Softer border radius */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+.auth-container {
+    max-width: 480px;
+}
+
+/* ==========================================================================
+   3. Header & Navigation
+   ========================================================================== */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6; /* Lighter border */
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.9em; /* Slightly larger */
+    color: #0056b3;
+    font-weight: 600;
+}
+
+.app-header nav {
+    display: flex;
+    align-items: center;
+}
+
+.app-header nav span {
+    margin-right: 20px;
+    color: #5a6268; /* Grey for welcome message */
+    font-size: 0.95em;
+}
+
+.app-header nav .nav-link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #0069d9; /* Brighter blue */
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+.app-header nav .nav-link:hover {
+    background-color: #e9ecef; /* Light grey hover */
+    color: #004085; /* Darker blue on hover */
+    text-decoration: none;
+}
+
+.app-header nav .btn-logout {
+    background-color: #c82333; /* Danger red */
+    color: white;
+    border: none;
+}
+.app-header nav .btn-logout:hover {
+    background-color: #bd2130; /* Darker red */
+    color: white;
+}
+
+/* ==========================================================================
+   4. Typography (Headings, Paragraphs)
+   ========================================================================== */
+h2 {
+    color: #2c3e50; /* Darker, slightly desaturated blue */
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.7em;
+    font-weight: 600;
+}
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.app-container h2 {
+    text-align: left;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #34495e; /* Another shade of dark blue/grey */
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1.2em;
+    color: #495057;
+}
+
+/* ==========================================================================
+   5. Forms & Inputs
+   ========================================================================== */
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 15px; /* More padding */
+    border: 1px solid #ced4da;
+    border-radius: 5px; /* Softer radius */
+    font-size: 1em;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+input[type="file"] {
+    padding: 10px 15px;
+    border-style: dashed;
+    background-color: #f8f9fa;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus {
+    border-color: #86b7fe; /* Lighter blue on focus */
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Bootstrap-like focus shadow */
+}
+.upload-form small {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.875em;
+    color: #6c757d;
+}
+
+/* ==========================================================================
+   6. Buttons
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    font-weight: 500; /* Medium weight */
+    color: #fff; /* Default white text */
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #007bff; /* Primary blue */
+    border: 1px solid #007bff;
+    padding: 10px 20px; /* Standard padding */
+    font-size: 1em;
+    line-height: 1.5;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+    background-color: #0056b3; /* Darker on hover */
+    border-color: #0056b3;
+    text-decoration: none;
+    color: #fff;
+}
+.btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-primary {
+    /* Already styled by .btn, but can add specifics if needed */
+}
+.auth-container .btn-primary {
+    width: 100%; /* Full width for login/register buttons */
+    padding: 12px 15px; /* Slightly larger padding */
+}
+
+.btn-upload {
+    /* Specifics if needed */
+}
+
+.btn-view {
+    color: #007bff;
+    background-color: transparent;
+    border-color: #007bff;
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+.btn-view:hover {
+    color: #fff;
+    background-color: #007bff;
+}
+
+
+/* ==========================================================================
+   7. Messages (Error, Success, Warning)
+   ========================================================================== */
+.message {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+.message.error {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Reddish border */
+}
+.message.success {
+    color: #155724; /* Dark green text */
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Greenish border */
+}
+.message.warning {
+    color: #856404; /* Dark yellow text */
+    background-color: #fff3cd; /* Light yellow background */
+    border-color: #ffeeba; /* Yellowish border */
+}
+.message.warning strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* ==========================================================================
+   8. Auth Switch Link (Login/Register page)
+   ========================================================================== */
+.auth-switch {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95em;
+}
+.auth-switch a {
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   9. Table Styling (Job Status List)
+   ========================================================================== */
+.job-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    font-size: 0.95em;
+    border-radius: 5px; /* Rounded corners for table */
+    overflow: hidden; /* Ensures border-radius applies to th/td */
+}
+.job-table th, .job-table td {
+    border-bottom: 1px solid #dee2e6;
+    padding: 12px 15px; /* More padding */
+    text-align: left;
+    vertical-align: middle;
+}
+.job-table th {
+    background-color: #e9ecef; /* Light grey for table header */
+    font-weight: 600;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+.job-table tbody tr:nth-child(even) {
+    /* background-color: #f8f9fa; */ /* Subtle striping, optional */
+}
+.job-table tbody tr:hover {
+    background-color: #f1f5f9; /* Light blue hover */
+}
+.job-table td:first-child, .job-table th:first-child {
+    padding-left: 20px;
+}
+.job-table td:last-child, .job-table th:last-child {
+    padding-right: 20px;
+    text-align: center; /* Center action buttons */
+}
+
+
+/* ==========================================================================
+   10. Job Details & Image Gallery
+   ========================================================================== */
+.job-details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border: 1px solid #e9ecef;
+}
+.job-details p {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: #333;
+}
+.job-details strong {
+    min-width: 120px; /* Adjust for alignment */
+    display: inline-block;
+    color: #555;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Increased gap */
+    margin-top: 20px;
+    padding-top: 20px;
+    /* border-top: 1px solid #e9ecef; */
+}
+.job-status-gallery .image-item-detailed { /* Specific for job status page */
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+    width: calc(50% - 12.5px); /* Two columns with gap */
+    min-width: 300px; /* Min width for smaller screens before wrapping */
+}
+.image-item-detailed .filename {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #0056b3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.image-item-detailed .detection-details {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+    min-height: 1.2em; /* Prevent layout shift */
+}
+.image-comparison {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around; /* Distribute space */
+    align-items: flex-start;
+}
+.image-box {
+    flex: 1; /* Each box takes equal space */
+    text-align: center;
+    border: 1px solid #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+.image-box .box-label {
+    display: block;
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.comparison-preview {
+    max-width: 100%;
+    height: 180px; /* Fixed height for comparison previews */
+    object-fit: contain; /* Show entire image, letterbox if needed */
+    border: 1px solid #ced4da;
+    background-color: #fff; /* White background for images */
+    border-radius: 3px;
+}
+.comparison-placeholder {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    color: #6c757d;
+    background-color: #e9ecef;
+    border: 1px dashed #ced4da;
+    border-radius: 3px;
+}
+
+
+/* Styles for the simpler image-item used in the previous jobStatus.jsp (if still needed) */
+.image-gallery .image-item {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.image-item .filename { /* Re-styling for simpler item */
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #333;
+    height: 2.7em; /* Approx 2 lines for shorter names */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.image-item .image-preview-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px auto;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+}
+.image-item img.thumbnail-preview { /* For the old simpler thumbnail */
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.image-item .image-links {
+    font-size: 0.9em;
+}
+
+/* ==========================================================================
+   11. Status Indicators
+   ========================================================================== */
+.status {
+    padding: 4px 10px; /* Slightly more padding */
+    border-radius: 15px; /* More pill-like */
+    font-size: 0.8em; /* Smaller font */
+    font-weight: 600; /* Bolder */
+    text-transform: uppercase;
+    color: white;
+    display: inline-block; /* Ensure it behaves like a block for padding */
+    letter-spacing: 0.5px;
+}
+.status-pending { background-color: #6c757d; }      /* Grey */
+.status-processing { background-color: #ffc107; color: #212529; } /* Yellow with dark text */
+.status-completed { background-color: #198754; }    /* Bootstrap Green */
+.status-failed { background-color: #dc3545; }       /* Bootstrap Red */
+.status-info { background-color: #0dcaf0; color: #000; } /* Bootstrap Info Cyan */
+
+/* Placeholders with status colors */
+.thumbnail-placeholder.status-processing, .comparison-placeholder.status-processing { color: #856404; background-color: #fff3cd; border-color: #ffeeba; }
+.thumbnail-placeholder.status-failed, .comparison-placeholder.status-failed { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb;}
+.thumbnail-placeholder.status-info, .comparison-placeholder.status-info { color: #055160; background-color: #cff4fc; border-color: #b6effb;}
+
+
+/* ==========================================================================
+   12. Links & Utility
+   ========================================================================== */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+.back-link {
+    margin-top: 30px;
+    font-size: 0.95em;
+}
+.back-link a {
+    font-weight: 500;
+}
+.home-link {
+    text-align: center;
+    margin-top: 35px;
+}
+.home-link .btn + .btn {
+    margin-left: 15px;
+}
+
+/* ==========================================================================
+   13. Error Page Specific
+   ========================================================================== */
+.error-container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.error-container h2 {
+    color: #dc3545; /* Red for error heading */
+    margin-bottom: 15px;
+}
+.error-details {
+    margin: 25px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    text-align: left;
+    max-width: 600px; /* Limit width of error details box */
+}
+.error-details p {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+.error-container pre { /* For stack trace (if shown) */
+    background-color: #222; /* Dark background for code */
+    color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.85em;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   14. Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    margin-top: 50px; /* More space before footer */
+    padding-top: 25px;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/* ==========================================================================
+   15. Responsive Adjustments (Basic Example)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .app-header h1 {
+        margin-bottom: 10px;
+    }
+    .app-header nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .app-header nav span, .app-header nav .nav-link {
+        margin-left: 0;
+        margin-bottom: 8px;
+        width: 100%;
+        text-align: left;
+    }
+    .job-status-gallery .image-item-detailed {
+        width: 100%; /* Full width on smaller screens */
+    }
+    .image-comparison {
+        flex-direction: column; /* Stack original and filtered image */
+    }
+    .image-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .comparison-preview, .comparison-placeholder {
+        height: 200px; /* Adjust height for stacked view */
+    }
+    .job-table th, .job-table td {
+        padding: 8px 10px;
+        font-size: 0.9em; /* Slightly smaller font in tables on mobile */
+    }
+    .job-table td:last-child, .job-table th:last-child {
+        text-align: left; /* Align action buttons left on mobile for consistency */
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .btn {
+        font-size: 0.95em;
+        padding: 8px 15px;
+    }
+    .app-header h1 {
+        font-size: 1.6em;
+    }
+}

@@ -1,0 +1,123 @@
+/* ==========================================================================
+   webapp/css/error-page-style.css
+   Styles specific to the error.jsp page
+   ========================================================================== */
+
+/* Kế thừa một số style chung nếu không có file style.css chính */
+/* Hoặc bạn có thể định nghĩa lại hoàn toàn ở đây */
+body.error-page-body { /* Thêm class vào thẻ body trong error.jsp nếu muốn style body riêng */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background for error page */
+    color: #212529;
+    line-height: 1.6;
+    display: flex; /* To center content vertically */
+    align-items: center; /* To center content vertically */
+    justify-content: center; /* To center content horizontally */
+    min-height: 100vh; /* Full viewport height */
+}
+
+.container.error-container {
+    width: 90%;
+    max-width: 700px; /* Max width for error content */
+    margin: 20px auto; /* Reset margin as body will center it */
+    background-color: #ffffff;
+    padding: 30px 40px; /* More padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text within the container */
+    border-top: 5px solid #dc3545; /* Red top border for emphasis */
+}
+
+.error-container h2 {
+    color: #dc3545; /* Red color for error heading */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 2em; /* Larger heading */
+    font-weight: 600;
+}
+
+.error-container p {
+    margin-bottom: 1.2em;
+    color: #495057; /* Dark grey text */
+    font-size: 1.05em;
+}
+
+.error-details {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f1f3f5; /* Lighter grey for details box */
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    text-align: left; /* Align text left within the details box */
+}
+
+.error-details p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #343a40;
+}
+
+.error-details strong {
+    color: #000;
+}
+
+.error-container .home-link {
+    margin-top: 30px;
+}
+
+.error-container .btn {
+    display: inline-block;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #007bff; /* Primary blue */
+    border: 1px solid #007bff;
+    padding: 10px 20px;
+    font-size: 1em;
+    line-height: 1.5;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.error-container .btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #fff;
+}
+
+.error-container .btn + .btn { /* Space between buttons */
+    margin-left: 15px;
+}
+
+/* Styles for Developer Debug Information (nếu bạn bỏ comment phần đó trong JSP) */
+.error-container h3 { /* For "Developer Debug Information:" */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.error-container pre {
+    background-color: #2b3035; /* Dark background for stack trace */
+    color: #c0c5ce; /* Light text */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: pre-wrap;   /* CSS3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap;    /* Opera 4-6 */
+    white-space: -o-pre-wrap;  /* Opera 7 */
+    word-wrap: break-word;     /* Internet Explorer 5.5+ */
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.85em; /* Smaller font for stack trace */
+    max-height: 300px; /* Limit height and make scrollable */
+    overflow-y: auto;
+    border: 1px solid #444;
+    margin-top: 10px;
+}
