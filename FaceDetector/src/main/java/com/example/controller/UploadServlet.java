@@ -45,15 +45,12 @@ public class UploadServlet extends HttpServlet {
         super.init();
         imageJobDAO = new ImageJobDAO();
         try {
-            // Khởi tạo FaceDetectionService. Nó cần biết tên file cascade.
-            // FaceDetectionService sẽ tự load file từ classpath resources.
-            faceDetectionService = new FaceDetectionService(CASCADE_FILE_NAME);
-            System.out.println("UploadServlet initialized with FaceDetectionService.");
+            faceDetectionService = new FaceDetectionService();
+            System.out.println("UploadServlet initialized with FaceDetectionService (using hardcoded cascade path).");
         } catch (IOException e) {
-            System.err.println("FATAL: Could not initialize FaceDetectionService in UploadServlet: " + e.getMessage());
+            System.err.println("FATAL: Could not initialize FaceDetectionService in UploadServlet (hardcoded path): " + e.getMessage());
             e.printStackTrace();
-            // Nếu FaceDetectionService là cốt lõi, có thể ném ServletException để ngăn servlet khởi động
-            throw new ServletException("Failed to initialize FaceDetectionService. OpenCV or cascade file might be missing.", e);
+            throw new ServletException("Failed to initialize FaceDetectionService. Check hardcoded cascade path and OpenCV setup.", e);
         }
     }
 

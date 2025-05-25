@@ -9,11 +9,11 @@
 
   <context-param>
     <param-name>uploadDirectory</param-name>
-    <param-value>C:\Users\My computer\eclipseWeb\FaceDetector\server_data\uploads</param-value> 
+    <param-value>C:\Users\My computer\eclipseWeb\hehe\server_data\uploads</param-value> 
   </context-param>
   <context-param>
     <param-name>outputDirectory</param-name> 
-    <param-value>C:\Users\My computer\eclipseWeb\FaceDetector\server_data\facedetect</param-value> 
+    <param-value>C:\Users\My computer\eclipseWeb\hehe\server_data\facedetect</param-value> 
   </context-param>
 
   <session-config>
