@@ -20,7 +20,7 @@ public class AppContextListener implements ServletContextListener {
 	static {
 	    try {
 	        // THAY ĐỔI ĐƯỜNG DẪN NÀY CHO CHÍNH XÁC
-	        String pathToNativeLib = "C:/Users/My computer/eclipseWeb/hehe/opencv_java4110.dll";
+	        String pathToNativeLib = "C:/Users/My computer/eclipseWeb/FaceDetector/opencv_java4110.dll";
 	        System.out.println("Attempting to load OpenCV native library from absolute path: " + pathToNativeLib);
 	        System.load(pathToNativeLib);
 	        System.out.println("OpenCV Native Library loaded successfully. Version: " + org.opencv.core.Core.VERSION);

@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS face_detector_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE face_detector_db;
-
 CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
